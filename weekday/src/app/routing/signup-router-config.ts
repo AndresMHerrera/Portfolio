@@ -9,7 +9,7 @@ export const signupRouterConfig: Route[] = [
         component: SignupComponent
     },
     {
-        path: 'invite',
+        path: ROUTE_PATHS.INVITE,
         component: InviteTeamMembersComponent
     }
 ];
