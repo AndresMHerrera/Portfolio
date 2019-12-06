@@ -1,6 +1,6 @@
-<div class="page-container-background">
-<!-- <div [style.height]="calc(100% - 66px)"> -->
+<app-navigation-bar *ngIf="!isContentFullHeight"></app-navigation-bar>
 
+<div class="page-container-background" [ngClass]="pageStyle">
     <div class="page-container-content">
         <ng-content></ng-content>
     </div>

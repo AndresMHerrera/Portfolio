@@ -1,3 +1,4 @@
+import { LoginService } from './../../core/services/login/login.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,12 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-    constructor(public router: Router, public route: ActivatedRoute) { }
+    constructor(public router: Router, public route: ActivatedRoute, public loginService: LoginService) { }
 
     ngOnInit() {
     }
 
-    back(): void {
+    logout(): void {
+        this.loginService.logout();
         this.router.navigate(['../'], { relativeTo: this.route });
     }
 

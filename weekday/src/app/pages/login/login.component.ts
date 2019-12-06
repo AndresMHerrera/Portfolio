@@ -1,3 +1,4 @@
+import { LoginService } from './../../core/services/login/login.service';
 import { ROUTE_PATHS } from './../../routing/route-paths';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-    constructor(public router: Router) { }
+    constructor(public router: Router, public loginService: LoginService) { }
 
     ngOnInit() {
     }
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate([ROUTE_PATHS.SIGNUP]);
     }
 
-    login(): void {
+    onLogin(): void {
+        this.loginService.login();
         this.router.navigate([ROUTE_PATHS.HOME]);
     }
 

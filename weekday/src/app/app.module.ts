@@ -21,7 +21,7 @@ import { ButtonModule } from 'primeng/button';
     SignupComponent,
     InviteTeamMembersComponent,
     PageComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
   ],
   imports: [
     BrowserModule,

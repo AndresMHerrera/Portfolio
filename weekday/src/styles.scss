@@ -1,6 +1,6 @@
 
 $colors: (
-    primary: #418ffd,
+    primary: #333,
     secondary: lightgray
 );
 
@@ -10,6 +10,10 @@ $fontsize: (
     content-size: 10px
 );
 
+$pageStructure: (
+    navbar-height: 5%,
+    page-content-height: 95%
+);
 
 html {
     height: 100vh;
