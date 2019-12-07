@@ -12,33 +12,35 @@ import { NavigationBarComponent } from './core/components/navigation-bar/navigat
 
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import {SidebarModule} from 'primeng/sidebar';
+import { SidebarModule } from 'primeng/sidebar';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ToggleButtonModule} from 'primeng/togglebutton';
+import { ToggleButtonModule } from 'primeng/togglebutton';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent,
-    SignupComponent,
-    InviteTeamMembersComponent,
-    PageComponent,
-    NavigationBarComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    InputTextModule,
-    ButtonModule,
-    BrowserAnimationsModule,
-    SidebarModule,
-    ToggleButtonModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        LoginComponent,
+        HomeComponent,
+        SignupComponent,
+        InviteTeamMembersComponent,
+        PageComponent,
+        NavigationBarComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        InputTextModule,
+        ButtonModule,
+        BrowserAnimationsModule,
+        SidebarModule,
+        ToggleButtonModule,
+        FormsModule,
+        HttpClientModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
