@@ -1,4 +1,4 @@
-import { GlobalSettings } from './../../models/global-settings/global-settings.module';
+import { GlobalSettings } from './../../models/global-settings.model';
 import { Injectable } from '@angular/core';
 
 @Injectable({
