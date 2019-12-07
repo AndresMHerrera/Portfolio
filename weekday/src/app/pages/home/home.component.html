@@ -1,2 +1,64 @@
-<button (click)="logout()"> logout </button>
-<p>home works!</p>
+<!-- <button (click)="logout()"> logout </button> -->
+<!-- <p>home works!</p> -->
+<br>
+
+<div class="level-1-controls">
+
+    <div class="project-name">
+        <h1> Project Name </h1>
+    </div>
+
+    <div class="wall-controls">
+        <div class="navbar-links">
+            <ul>
+                <li> <img class="icon-small" src="assets/icons/notification.svg" alt=""> </li>
+                <li> <img class="icon-small" src="assets/icons/group.svg" alt=""> </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<br>
+
+<div class="project-description">
+    <p>
+        Learn one way to build applications with Angular
+        and reuse your code and abilities to build apps
+        for any deployment target. For web, mobile web, native mobile and native desktop.
+    </p>
+</div>
+
+<br>
+
+<div class="level-2-controls">
+    <div class="navbar-links">
+        <ul>
+            <li (click)="onDisplaySideMenu()"> <img class="icon-small" src="assets/icons/menu.svg" alt=""> </li>
+            <li>
+                <div class="ui-inputgroup">
+                    <input type="text" pInputText placeholder="Search/Filter Wall">
+                    <button pButton type="button" label="Search"></button>
+                </div>
+            </li>
+            <li> <img class="icon-small" src="assets/icons/filter-results-button.svg" alt=""> </li>
+        </ul>
+    </div>
+</div>
+
+<h1> tasks here </h1>
+
+<p-sidebar [(visible)]="display">
+
+    <h1> Walls </h1>
+
+    <ul>
+        <li> Project 1 </li>
+        <li> Project 2 </li>
+        <li> Project 3 </li>
+        <li> Project 4 </li>
+        <li> Project 5 </li>
+        <li> Project 6 </li>
+        <li> Project 7 </li>
+    </ul>
+</p-sidebar>

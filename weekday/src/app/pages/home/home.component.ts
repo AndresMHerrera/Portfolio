@@ -9,6 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+    // tslint:disable-next-line: no-inferrable-types
+    public display: boolean = false;
+
+    // tslint:disable-next-line: no-inferrable-types
+    public checked2: boolean = false;
+
     constructor(public router: Router, public route: ActivatedRoute, public loginService: LoginService) { }
 
     ngOnInit() {
@@ -17,6 +23,10 @@ export class HomeComponent implements OnInit {
     logout(): void {
         this.loginService.logout();
         this.router.navigate(['../'], { relativeTo: this.route });
+    }
+
+    onDisplaySideMenu(): void {
+        this.display = !this.display;
     }
 
 }

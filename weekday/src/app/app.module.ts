@@ -12,6 +12,11 @@ import { NavigationBarComponent } from './core/components/navigation-bar/navigat
 
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import {SidebarModule} from 'primeng/sidebar';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ToggleButtonModule} from 'primeng/togglebutton';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,11 @@ import { ButtonModule } from 'primeng/button';
     BrowserModule,
     AppRoutingModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    BrowserAnimationsModule,
+    SidebarModule,
+    ToggleButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
