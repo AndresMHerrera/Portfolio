@@ -18,4 +18,10 @@ export class GlobalSettings {
     get hostURL(): string {
         return this._hostURL;
     }
+
+    // tslint:disable-next-line: variable-name
+    private _object_type_key: string = 'my_type';
+    get objectTypeKey(): string {
+        return this._object_type_key;
+    }
 }
