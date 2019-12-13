@@ -13,7 +13,7 @@ export class UserService extends BaseService {
         super();
     }
 
-    getUser(): Observable<UserModel> {
+    public getUser(): Observable<UserModel> {
         const url: string =  this.globalSettings.hostURL + '/user';
         return this.networkService.get<UserModel>(url);
     }
