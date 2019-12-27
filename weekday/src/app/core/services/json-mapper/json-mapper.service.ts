@@ -18,8 +18,18 @@ export class JsonMapperService extends BaseService {
     }
 
     public deserializeObject<T>(jsonObject: any): T {
-        // tslint:disable-next-line: no-string-literal
         return this.jsonConvert.deserializeObject<T>(jsonObject,
             AllModelsUtility.shared.models[jsonObject[this.globalSettings.objectTypeKey]]);
+    }
+
+    public deserializeArray<T>(jsonArray: any[]): T[] {
+
+        if (jsonArray && jsonArray.length > 0) {
+            // tslint:disable-next-line: max-line-length
+            return this.jsonConvert.deserializeArray<T>(jsonArray,
+                AllModelsUtility.shared.models[jsonArray[0][this.globalSettings.objectTypeKey]]);
+        } else {
+            return [];
+        }
     }
 }
