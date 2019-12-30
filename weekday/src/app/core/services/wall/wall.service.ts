@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { WallModel } from './../../models/wall.model';
 import { NetworkService } from './../network/network.service';
 import { Injectable } from '@angular/core';
 import { BaseService } from '../base/base.service';
@@ -11,8 +13,9 @@ export class WallService extends BaseService {
         super();
     }
 
-    getWallsByUser(userId: number): any {
-        const url: string =  this.globalSettings.hostURL + `/walls/${userId}`;
-        return this.networkService.get(url);
+    getWallsByUser(userId: number): Observable<WallModel[]> {
+        // const url: string =  this.globalSettings.hostURL + `/walls/${userId}`;
+        const url: string =  this.globalSettings.hostURL + `/walls`;
+        return this.networkService.get<WallModel>(url) as Observable<WallModel[]>;
     }
 }

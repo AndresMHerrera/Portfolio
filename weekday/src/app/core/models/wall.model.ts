@@ -1,7 +1,8 @@
-import { JsonProperty } from 'json2typescript';
+import { JsonProperty, JsonObject } from 'json2typescript';
 import { mappable } from '../decorators/mappable.decorator';
 
 @mappable
+@JsonObject('UserModel')
 export class WallModel {
 
     // tslint:disable-next-line: variable-name

@@ -15,10 +15,11 @@ export class NetworkService extends BaseService {
         super();
     }
 
-    public get<T>(url: string): Observable<T> {
+    public get<T>(url: string): Observable<T | T[]> {
+
         return this.httpClient.get<T>(url).pipe(
             retry(3),
-            map((json) => this.jsonMapperService.deserializeObject<T>(json))
+            map((json) => this.jsonMapperService.deserialize<T>(json))
         );
     }
 }

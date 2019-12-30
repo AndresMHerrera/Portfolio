@@ -5,14 +5,15 @@
 <div class="level-1-controls">
 
     <div class="project-name">
-        <h1> Project Name </h1>
+        <h1 *ngIf="selectedWall"> {{ selectedWall.title }} </h1>
     </div>
 
     <div class="wall-controls">
         <div class="navbar-links">
             <ul>
-                <li> <img class="icon-small" src="assets/icons/notification.svg" alt=""> </li>
-                <li> <img class="icon-small" src="assets/icons/group.svg" alt=""> </li>
+                <li> <img class="icon-small" src="assets/icons/history.svg" alt=""> </li>
+                <!-- <li> <img class="icon-small" src="assets/icons/notification.svg" alt=""> </li> -->
+                <!-- <li> <img class="icon-small" src="assets/icons/group.svg" alt=""> </li> -->
             </ul>
         </div>
     </div>
@@ -22,11 +23,7 @@
 <br>
 
 <div class="project-description">
-    <p>
-        Learn one way to build applications with Angular
-        and reuse your code and abilities to build apps
-        for any deployment target. For web, mobile web, native mobile and native desktop.
-    </p>
+    <p *ngIf="selectedWall"> {{ selectedWall.description }} </p>
 </div>
 
 <br>
@@ -53,12 +50,6 @@
     <h1> Walls </h1>
 
     <ul>
-        <li> Project 1 </li>
-        <li> Project 2 </li>
-        <li> Project 3 </li>
-        <li> Project 4 </li>
-        <li> Project 5 </li>
-        <li> Project 6 </li>
-        <li> Project 7 </li>
+        <li *ngFor="let item of walls"> {{ item.title }} </li>
     </ul>
 </p-sidebar>

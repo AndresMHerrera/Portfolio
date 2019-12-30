@@ -10,3 +10,5 @@ UserModel;
 WallModel;
 // tslint:disable-next-line: no-unused-expression
 TestModel;
+// tslint:disable-next-line: no-unused-expression
+WallModel;

@@ -40,6 +40,28 @@ describe('JsonMapperService', () => {
 
     });
 
+    it('should deserialize an object - interface', () => {
+
+        const result: TestModel = jsonMapperService.deserialize<TestModel>(json) as TestModel;
+
+        expect(result).toBeTruthy('Json object not parsed correctly');
+        expect(result.name).toEqual('John');
+        expect(result.phone).toEqual(5555555555);
+    });
+
+    it('should deserialize a non-empty Array - interface', () => {
+
+        const jsonArray: any[] = [json, json];
+
+        const result: TestModel[] = jsonMapperService.deserialize<TestModel>(jsonArray) as TestModel[];
+
+        expect(result).toBeTruthy();
+        expect(result.length).toEqual(2);
+        expect(result[0]).toBeTruthy('Json object not parsed correctly');
+        expect(result[0].name).toEqual('John');
+        expect(result[0].phone).toEqual(5555555555);
+    });
+
     it('should deserialize an object', () => {
 
         const result: TestModel = jsonMapperService.deserializeObject<TestModel>(json);

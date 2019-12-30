@@ -14,10 +14,19 @@ export class JsonMapperService extends BaseService {
     constructor() {
         super();
         this.jsonConvert = new JsonConvert();
-        // this.jsonConvert.operationMode = OperationMode.LOGGING;
+    }
+
+    public deserialize<T>(json: any): T | T[] {
+
+        if (!Array.isArray(json)) {
+            return this.deserializeObject<T>(json);
+        } else {
+            return this.deserializeArray<T>(json);
+        }
     }
 
     public deserializeObject<T>(jsonObject: any): T {
+
         return this.jsonConvert.deserializeObject<T>(jsonObject,
             AllModelsUtility.shared.models[jsonObject[this.globalSettings.objectTypeKey]]);
     }
@@ -25,7 +34,7 @@ export class JsonMapperService extends BaseService {
     public deserializeArray<T>(jsonArray: any[]): T[] {
 
         if (jsonArray && jsonArray.length > 0) {
-            // tslint:disable-next-line: max-line-length
+
             return this.jsonConvert.deserializeArray<T>(jsonArray,
                 AllModelsUtility.shared.models[jsonArray[0][this.globalSettings.objectTypeKey]]);
         } else {

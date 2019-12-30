@@ -15,6 +15,6 @@ export class UserService extends BaseService {
 
     public getUser(): Observable<UserModel> {
         const url: string =  this.globalSettings.hostURL + '/user';
-        return this.networkService.get<UserModel>(url);
+        return this.networkService.get<UserModel>(url) as Observable<UserModel>;
     }
 }
