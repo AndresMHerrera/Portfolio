@@ -36,14 +36,24 @@
                     "my_type": "TaskModel",
                     "name": "task 1",
                     "description": "Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web, mobile web, native mobile and native desktop.",
-                    "status": "IN_PROGRESS"
+                    "status": "IN_PROGRESS",
+                    "timeEstimate": {
+                        "my_type": "TimeEstimateModel",
+                        "value": 10,
+                        "unit": "hrs"
+                    }
                 },
                 {
                     "id": 1,
                     "my_type": "TaskModel",
                     "name": "task 2",
                     "description": "Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web, mobile web, native mobile and native desktop.",
-                    "status": "IN_REVIEW"
+                    "status": "IN_REVIEW",
+                    "timeEstimate": {
+                        "my_type": "TimeEstimateModel",
+                        "value": 12,
+                        "unit": "hrs"
+                    }
                 }
             ]
         }

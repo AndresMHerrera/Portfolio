@@ -4,14 +4,14 @@
         <th> <p-button (click)="onCollapseBundle()" icon="pi pi-caret-down"></p-button> </th>
         <th class="title"> {{ taskBundle.name }} </th>
         <th class="sub-title"> Status </th>
-        <th class="sub-title"> Timeline </th>
+        <th class="sub-title"> Time Estimate </th>
         <th> <p-button (click)="onCreateNewTaskBundle()" icon="pi pi-plus-circle"></p-button> </th>
     </tr>
     <tr *ngFor="let task of taskBundle.tasks" class="task-row">
         <td></td>
         <td> {{ task.name }} </td>
-        <td class="task-column"> {{ task.status }} </td>
-        <td class="task-column"> fix </td>
+        <td class="task-column"> {{ task.status | taskStatus }} </td>
+        <td class="task-column"> {{ task.timeEstimate.value }} {{ task.timeEstimate.unit }} </td>
         <td></td>
     </tr>
 

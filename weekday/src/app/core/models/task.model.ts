@@ -1,3 +1,4 @@
+import { TimeEstimateModel } from './time-estimate.model';
 import { TaskStatusConverter } from './../services/json-mapper/converters/task-status.converter';
 import { TASK_STATUS } from './../enumerations/task-status.enum';
 import { TimeLineModel } from './timeline.model';
@@ -20,8 +21,8 @@ export class TaskModel {
     @JsonProperty('status', TaskStatusConverter)
     status: TASK_STATUS = undefined;
 
-    // @JsonProperty('status', TASK_STATUS)
-    // status: TASK_STATUS = undefined;
+    @JsonProperty('timeEstimate', TimeEstimateModel)
+    timeEstimate: TimeEstimateModel = undefined;
 
     // @JsonProperty('timeline', TimeLineModel)
     // timeLine: TimeLineModel = undefined;

@@ -20,6 +20,7 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskBundleComponent } from './core/components/task-bundle/task-bundle.component';
+import { TaskStatusPipe } from './core/pipes/task-status.pipe';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { TaskBundleComponent } from './core/components/task-bundle/task-bundle.c
         PageComponent,
         NavigationBarComponent,
         TaskBundleComponent,
+        TaskStatusPipe,
     ],
     imports: [
         BrowserModule,
