@@ -1,3 +1,4 @@
+import { TaskBundleModel } from './../models/task-bundle.model';
 import { TaskModel } from './../models/task.model';
 import { TestModel } from './../models/test.model';
 import { WallModel } from './../models/wall.model';
@@ -15,3 +16,5 @@ TestModel;
 WallModel;
 // tslint:disable-next-line: no-unused-expression
 TaskModel;
+// tslint:disable-next-line: no-unused-expression
+TaskBundleModel;

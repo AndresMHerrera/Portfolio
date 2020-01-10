@@ -2,26 +2,23 @@
 <table>
     <tr>
         <th> <p-button (click)="onCollapseBundle()" icon="pi pi-caret-down"></p-button> </th>
-        <th class="title"> This Week </th>
+        <th class="title"> {{ taskBundle.name }} </th>
         <th class="sub-title"> Status </th>
         <th class="sub-title"> Timeline </th>
         <th> <p-button (click)="onCreateNewTaskBundle()" icon="pi pi-plus-circle"></p-button> </th>
     </tr>
-    <tr class="tasks">
+    <tr *ngFor="let task of taskBundle.tasks" class="task-row">
         <td></td>
-        <td> Learn Angular </td>
-        <td class="metric"> Done </td>
-        <td class="metric">Lois</td>
+        <td> {{ task.name }} </td>
+        <td class="task-column"> {{ task.status }} </td>
+        <td class="task-column"> fix </td>
         <td></td>
     </tr>
 
-    <tr class="new-task" (click)="onCreateNewTask()">
+    <tr class="new-task-row" (click)="onCreateNewTask()">
         <td></td>
-        <td>
+        <td class="new-task-column" colspan="4">
             + Create a New Task (Row)
         </td>
-        <td></td>
-        <td></td>
-        <td></td>
     </tr>
 </table>

@@ -15,29 +15,37 @@ table {
     width: 100%;
 }
 
+
 th,
 td {
     padding: 15px;
 }
 
-.tasks td{
-    border: 1px solid #ddd;
-}
 
+.task-row {
+
+    text-transform: capitalize;
+
+    .task-column {
+        width: 15%;
+    }
+    td {
+        border: 1px solid #ddd;
+    }
+}
+.task-row td:first-child {
+    border: 0;
+}
 tr td:last-child, td:first-child {
     width:1%;
     white-space:nowrap;
 }
 
-.metric {
-    width: 15%;
-}
 
-
-.new-task {
+.new-task-row {
     cursor: pointer;
-    border: 1px solid #ddd;
-}
-.new-task:hover {
-    background-color: lightgray;
+
+    .new-task-column:hover {
+        background-color: lightgray;
+    }
 }

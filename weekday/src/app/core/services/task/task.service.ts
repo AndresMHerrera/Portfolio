@@ -1,21 +1,22 @@
+import { TaskBundleModel } from './../../models/task-bundle.model';
 import { TaskModel } from './../../models/task.model';
 import { Observable } from 'rxjs';
 import { NetworkService } from './../network/network.service';
 import { Injectable } from '@angular/core';
-import { BaseService } from '../base/base.service';
+import { BaseNetworkService } from '../base/base-network.service';
 
 @Injectable({
     providedIn: 'root'
 })
-export class TaskService extends BaseService {
+export class TaskService extends BaseNetworkService {
 
-    constructor(private networkService: NetworkService) {
-        super();
+    constructor(networkService: NetworkService) {
+        super(networkService);
     }
 
-    public getTasksForWall(wallId: number): Observable<TaskModel[]> {
+    public getTaskBundlesForWall(wallId: number): Observable<TaskBundleModel[]> {
         const url: string =  this.globalSettings.hostURL + '/tasks';
-        return this.networkService.get<TaskModel>(url) as Observable<TaskModel[]>;
+        return this.networkService.get<TaskBundleModel>(url) as Observable<TaskBundleModel[]>;
     }
 
 }

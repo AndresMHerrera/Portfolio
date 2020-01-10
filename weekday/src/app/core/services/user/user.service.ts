@@ -1,16 +1,16 @@
+import { NetworkService } from './../network/network.service';
 import { Observable } from 'rxjs';
 import { UserModel } from './../../models/user.model';
-import { NetworkService } from './../network/network.service';
 import { Injectable } from '@angular/core';
-import { BaseService } from '../base/base.service';
+import { BaseNetworkService } from '../base/base-network.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends BaseService {
+export class UserService extends BaseNetworkService {
 
-    constructor(private networkService: NetworkService) {
-        super();
+    constructor(networkService: NetworkService) {
+        super(networkService);
     }
 
     public getUser(): Observable<UserModel> {

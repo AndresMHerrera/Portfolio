@@ -45,7 +45,7 @@
 
 <br>
 
-<app-task-bundle></app-task-bundle>
+<app-task-bundle *ngFor="let item of tasks" [taskBundle]="item"></app-task-bundle>
 
 
 <p-sidebar [(visible)]="display">
