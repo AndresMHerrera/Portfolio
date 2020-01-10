@@ -1,5 +1,5 @@
 import '../../util/init.util';
-import { TestModel } from './../../models/test.model';
+import { TestModel, TEST_ENUM } from './../../models/test.model';
 import { TestBed } from '@angular/core/testing';
 import { JsonMapperService } from './json-mapper.service';
 
@@ -7,23 +7,23 @@ describe('JsonMapperService', () => {
 
     let jsonMapperService: JsonMapperService;
 
-    const json: any =
-    {
-        "my_type":  "TestModel",
-        "my_name": "John",
-        "phone": 5555555555,
-        "nestedObject": {
-            "my_type":  "Test2Model",
-            "name": "Bob"
+    const json: any = {
+        my_type: 'TestModel',
+        my_name: 'John',
+        phone: 5555555555,
+        status: 'IN_REVIEW',
+        nestedObject: {
+            my_type: 'Test2Model',
+            name: 'Bob'
         },
-        "nestedArray": [
+        nestedArray: [
             {
-                "my_type":  "Test2Model",
-                "name": "Bob"
+                my_type:  'Test2Model',
+                name: 'Bob'
             },
             {
-                "my_type":  "Test2Model",
-                "name": "Bob"
+                my_type:  'Test2Model',
+                name: 'Bob'
             }
         ]
     };
@@ -47,6 +47,7 @@ describe('JsonMapperService', () => {
         expect(result).toBeTruthy('Json object not parsed correctly');
         expect(result.name).toEqual('John');
         expect(result.phone).toEqual(5555555555);
+        expect(result.status).toEqual(TEST_ENUM.IN_REVIEW);
     });
 
     it('should deserialize a non-empty Array - interface', () => {
@@ -60,6 +61,7 @@ describe('JsonMapperService', () => {
         expect(result[0]).toBeTruthy('Json object not parsed correctly');
         expect(result[0].name).toEqual('John');
         expect(result[0].phone).toEqual(5555555555);
+        expect(result[0].status).toEqual('IN_REVIEW');
     });
 
     it('should deserialize an object', () => {
@@ -69,6 +71,7 @@ describe('JsonMapperService', () => {
         expect(result).toBeTruthy('Json object not parsed correctly');
         expect(result.name).toEqual('John');
         expect(result.phone).toEqual(5555555555);
+        expect(result.status).toEqual(TEST_ENUM.IN_REVIEW);
     });
 
     it('should deserialize a nested custom object', () => {

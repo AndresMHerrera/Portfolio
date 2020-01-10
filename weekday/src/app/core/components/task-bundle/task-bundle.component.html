@@ -1,0 +1,27 @@
+
+<table>
+    <tr>
+        <th> <p-button (click)="onCollapseBundle()" icon="pi pi-caret-down"></p-button> </th>
+        <th class="title"> This Week </th>
+        <th class="sub-title"> Status </th>
+        <th class="sub-title"> Timeline </th>
+        <th> <p-button (click)="onCreateNewTaskBundle()" icon="pi pi-plus-circle"></p-button> </th>
+    </tr>
+    <tr class="tasks">
+        <td></td>
+        <td> Learn Angular </td>
+        <td class="metric"> Done </td>
+        <td class="metric">Lois</td>
+        <td></td>
+    </tr>
+
+    <tr class="new-task" (click)="onCreateNewTask()">
+        <td></td>
+        <td>
+            + Create a New Task (Row)
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>

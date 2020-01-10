@@ -40,6 +40,9 @@ export class HomeComponent implements OnInit {
                 if (this.walls.length > 0) {
                     this.selectedWall = this.walls[0];
                 }
+
+                console.log(this.user);
+                console.log(this.walls);
             }
         );
     }

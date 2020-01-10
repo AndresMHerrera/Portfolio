@@ -1,4 +1,3 @@
-// import './../core/util/init.util';
 import './core/util/init.util';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -20,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TaskBundleComponent } from './core/components/task-bundle/task-bundle.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
         InviteTeamMembersComponent,
         PageComponent,
         NavigationBarComponent,
+        TaskBundleComponent,
     ],
     imports: [
         BrowserModule,

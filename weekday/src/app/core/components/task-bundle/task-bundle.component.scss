@@ -1,0 +1,43 @@
+table,
+th {
+    text-align: left;
+    .title {
+        font-weight: normal;
+        font-size: 25px;
+    }
+    .sub-title {
+        font-weight: normal;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+.tasks td{
+    border: 1px solid #ddd;
+}
+
+tr td:last-child, td:first-child {
+    width:1%;
+    white-space:nowrap;
+}
+
+.metric {
+    width: 15%;
+}
+
+
+.new-task {
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+.new-task:hover {
+    background-color: lightgray;
+}

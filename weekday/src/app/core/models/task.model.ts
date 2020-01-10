@@ -1,7 +1,11 @@
-import { JsonProperty } from 'json2typescript';
+import { TaskStatusConverter } from './../services/json-mapper/converters/task-status.converter';
+import { TASK_STATUS } from './../enumerations/task-status.enum';
+import { TimeLineModel } from './timeline.model';
+import { JsonProperty, JsonObject } from 'json2typescript';
 import { mappable } from '../decorators/mappable.decorator';
 
 @mappable
+@JsonObject('TaskModel')
 export class TaskModel {
 
     // tslint:disable-next-line: variable-name
@@ -12,4 +16,13 @@ export class TaskModel {
 
     @JsonProperty('description', String)
     description: string = undefined;
+
+    @JsonProperty('status', TaskStatusConverter)
+    status: TASK_STATUS = undefined;
+
+    // @JsonProperty('status', TASK_STATUS)
+    // status: TASK_STATUS = undefined;
+
+    // @JsonProperty('timeline', TimeLineModel)
+    // timeLine: TimeLineModel = undefined;
 }
