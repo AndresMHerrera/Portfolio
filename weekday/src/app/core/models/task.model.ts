@@ -1,7 +1,5 @@
+import { TaskStatusModel } from './task-status.model';
 import { TimeEstimateModel } from './time-estimate.model';
-import { TaskStatusConverter } from './../services/json-mapper/converters/task-status.converter';
-import { TASK_STATUS } from './../enumerations/task-status.enum';
-import { TimeLineModel } from './timeline.model';
 import { JsonProperty, JsonObject } from 'json2typescript';
 import { mappable } from '../decorators/mappable.decorator';
 
@@ -18,8 +16,8 @@ export class TaskModel {
     @JsonProperty('description', String)
     description: string = undefined;
 
-    @JsonProperty('status', TaskStatusConverter)
-    status: TASK_STATUS = undefined;
+    @JsonProperty('status', TaskStatusModel)
+    status: TaskStatusModel = undefined;
 
     @JsonProperty('timeEstimate', TimeEstimateModel)
     timeEstimate: TimeEstimateModel = undefined;

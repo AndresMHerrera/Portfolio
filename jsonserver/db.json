@@ -36,7 +36,12 @@
                     "my_type": "TaskModel",
                     "name": "task 1",
                     "description": "Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web, mobile web, native mobile and native desktop.",
-                    "status": "IN_PROGRESS",
+                    "status": {
+                        "id": 0,
+                        "my_type": "TaskStatusModel",
+                        "label": "Done",
+                        "color": "green"
+                    },
                     "timeEstimate": {
                         "my_type": "TimeEstimateModel",
                         "value": 10,
@@ -48,7 +53,12 @@
                     "my_type": "TaskModel",
                     "name": "task 2",
                     "description": "Learn one way to build applications with Angular and reuse your code and abilities to build apps for any deployment target. For web, mobile web, native mobile and native desktop.",
-                    "status": "IN_REVIEW",
+                    "status": {
+                        "id": 1,
+                        "my_type": "TaskStatusModel",
+                        "label": "Working On It",
+                        "color": "orange"
+                    },
                     "timeEstimate": {
                         "my_type": "TimeEstimateModel",
                         "value": 12,

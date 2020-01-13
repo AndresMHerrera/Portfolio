@@ -1,3 +1,18 @@
+<!-- <p-dialog header="Title" [(visible)]="display"> -->
+<p-dialog header="Title" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+    [baseZIndex]="10000">
+    <table>
+        <tr>
+            <td> Status </td>
+        </tr>
+    </table>
+
+    <p-footer>
+        <button type="button" pButton icon="pi pi-check" (click)="display=false" label="Yes"></button>
+        <button type="button" pButton icon="pi pi-close" (click)="display=false" label="No" class="ui-button-secondary"></button>
+    </p-footer>
+
+</p-dialog>
 
 <table>
     <tr>
@@ -10,7 +25,8 @@
     <tr *ngFor="let task of taskBundle.tasks" class="task-row">
         <td></td>
         <td> {{ task.name }} </td>
-        <td class="task-column"> {{ task.status | taskStatus }} </td>
+        <!-- <td class="task-column"> {{ task.status | taskStatus }} </td> -->
+        <td class="task-column status" [style.background-color]="task.status.color" (click)="onChangeTaskStatus()"> {{ task.status.label }} </td>
         <td class="task-column"> {{ task.timeEstimate.value }} {{ task.timeEstimate.unit }} </td>
         <td></td>
     </tr>

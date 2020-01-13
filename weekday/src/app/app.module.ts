@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskBundleComponent } from './core/components/task-bundle/task-bundle.component';
 import { TaskStatusPipe } from './core/pipes/task-status.pipe';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import { TaskStatusPipe } from './core/pipes/task-status.pipe';
         SidebarModule,
         ToggleButtonModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        DialogModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -12,6 +12,8 @@ export class TaskBundleComponent implements OnInit {
 
     @Input() taskBundle: TaskBundleModel;
 
+    display: boolean = false;
+
     constructor(public taskService: TaskService) { }
 
     ngOnInit() {
@@ -29,5 +31,9 @@ export class TaskBundleComponent implements OnInit {
 
     public onCollapseBundle(): void {
         alert('onCollapseBundle');
+    }
+
+    public onChangeTaskStatus(): void {
+        this.display = !this.display;
     }
 }

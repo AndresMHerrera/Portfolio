@@ -2,10 +2,12 @@ table,
 th {
     text-align: left;
     .title {
+        color: #007ad9;
         font-weight: normal;
         font-size: 25px;
     }
     .sub-title {
+        color: gray;
         font-weight: normal;
     }
 }
@@ -28,9 +30,15 @@ td {
 
     .task-column {
         width: 15%;
+        text-align: center;
     }
     td {
         border: 1px solid #ddd;
+    }
+
+    .status {
+        color: white;
+        cursor: pointer;
     }
 }
 .task-row td:first-child {
