@@ -11,17 +11,18 @@ import { InviteTeamMembersComponent } from './pages/invite-team-members/invite-t
 import { PageComponent } from './core/components/page/page.component';
 import { NavigationBarComponent } from './core/components/navigation-bar/navigation-bar.component';
 
-import { InputTextModule } from 'primeng/inputtext';
+// import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToggleButtonModule } from 'primeng/togglebutton';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskBundleComponent } from './core/components/task-bundle/task-bundle.component';
 import { TaskStatusPipe } from './core/pipes/task-status.pipe';
 import {DialogModule} from 'primeng/dialog';
+import { InputTagFormControlComponent } from './core/components/forms/input-tag-form-control/input-tag-form-control.component';
 
 @NgModule({
     declarations: [
@@ -34,18 +35,20 @@ import {DialogModule} from 'primeng/dialog';
         NavigationBarComponent,
         TaskBundleComponent,
         TaskStatusPipe,
+        InputTagFormControlComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
-        InputTextModule,
+        // InputTextModule,
         ButtonModule,
         BrowserAnimationsModule,
         SidebarModule,
         ToggleButtonModule,
         FormsModule,
         HttpClientModule,
-        DialogModule
+        DialogModule,
+        ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

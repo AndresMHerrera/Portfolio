@@ -1,0 +1,7 @@
+<ng-container *ngIf="params">
+    <div class="input-container" [formGroup]="params.formGroup">
+        <label [for]="params.formControlName"> {{ params.label }} </label>
+        <input [id]="params.formControlName" [type]="params.type" [formControlName]="params.formControlName"
+            [placeholder]="params.placeholder" />
+    </div>
+</ng-container>

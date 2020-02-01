@@ -1,0 +1,35 @@
+input, label {
+    display: block;
+}
+
+// .input-container {
+//     margin-top: 10px;
+// }
+
+.input-container label {
+    width: 100%;
+    text-transform: capitalize;
+}
+
+.input-container input {
+    height: 40px;
+    width: 100%;
+    margin-top: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+
+}
+
+
+// .loginbox input[type="text"], input[type="password"] {
+//     border: none;
+//     border-bottom: 1px solid #fff;
+//     background: transparent;
+//     outline: none;
+//     height: 40px;
+//     color: #fff;
+//     font-size: 16px;
+// }

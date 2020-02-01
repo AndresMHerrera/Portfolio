@@ -11,7 +11,6 @@ export class LoginService {
     private userHasLoggedInOrOutNotifier: Subject<boolean>;
 
     constructor() {
-        console.log('Init - LoginService');
         this.userHasLoggedInOrOutNotifier = new Subject();
     }
 

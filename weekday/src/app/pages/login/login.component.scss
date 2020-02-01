@@ -19,22 +19,12 @@
     font-weight: bold;
 }
 
-.loginbox input {
-    width: 100%;
-    margin-top: 20px;
-}
+// .loginbox .submit-container {
+//     width: 100%;
+//     text-align: center;
+// }
 
-.loginbox input[type="text"], input[type="password"] {
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    height: 40px;
-    color: #fff;
-    font-size: 16px;
-}
-
-.loginbox input[type="submit"] {
+.loginbox button[type="submit"] {
     border: none;
     outline: none;
     height: 40px;
@@ -42,9 +32,11 @@
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
+    width: 100%;
+    cursor: pointer;
 }
 
-.loginbox input[type="submit"]:hover {
+.loginbox button[disabled=""]:hover {
     cursor: pointer;
     background: #ffc107;
     color: #000;
@@ -77,4 +69,8 @@ h1 {
     p {
         font-size: 50px;
     }
+}
+
+.element-container {
+    margin-top: 15px;
 }

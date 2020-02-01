@@ -1,15 +1,30 @@
-<!-- <p>login works!</p> -->
-
-<!-- <button (click)="login()"> login </button> -->
-<!-- <button (click)="signUp()"> sign up </button> -->
-
 <div class="loginbox">
 
     <div class="w3-container w3-lobster logo">
         <p class="w3-xxlarge">Weekday</p>
     </div>
 
-    <form>
+    <form [formGroup]="formBase_formGroup" (ngSubmit)="onLogin()">
+
+        <app-input-tag-form-control [params]="usernameFormControl"></app-input-tag-form-control>
+
+        <div class="element-container">
+            <app-input-tag-form-control [params]="passwordFormControl"></app-input-tag-form-control>
+        </div>
+
+        <div class="element-container">
+            <button type="submit" [disabled]="!formBase_formGroup.valid"> Login </button>
+        </div>
+
+        <a href="#"> Lost your password </a>
+        <a href="#"> Don't have an account? </a>
+    </form>
+
+</div>
+
+<button (click)="test()"> test </button>
+
+<!-- <form>
         <p> Username </p>
         <input type="text" name="" placeholder="Enter Username">
         <p> Password </p>
@@ -17,5 +32,4 @@
         <input type="Submit" name="" value="Login" (click)="onLogin()">
         <a href="#"> Lost your password </a>
         <a href="#"> Don't have an account? </a>
-    </form>
-</div>
+    </form> -->
