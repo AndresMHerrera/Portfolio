@@ -24,10 +24,11 @@ export class InputTagFormControlComponentParams<T> {
 export class InputTagFormControlComponent<T> implements OnInit {
 
     @Input() params: InputTagFormControlComponentParams<T>;
+    public control: FormControl;
 
     constructor() { }
 
     ngOnInit() {
+        this.control = this.params.formGroup.controls[this.params.formControlName] as FormControl;
     }
-
 }

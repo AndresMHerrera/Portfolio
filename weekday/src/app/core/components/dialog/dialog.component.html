@@ -1,0 +1,9 @@
+<ng-container *ngIf="params">
+    <p-dialog header="{{ params.title }}" [(visible)]="params.visible" [modal]="true" [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70"
+        [baseZIndex]="10000">
+
+        <ng-content></ng-content>
+
+    </p-dialog>
+</ng-container>
+

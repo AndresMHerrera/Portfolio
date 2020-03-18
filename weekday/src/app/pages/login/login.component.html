@@ -1,3 +1,15 @@
+
+<app-dialog [params]="dialogComponentParam">
+
+    <p> Please enter a valid <b> Username </b> and <b> Password </b> </p>
+    <br>
+    <p-footer>
+        <button type="button" class="ui-button-success" pButton icon="pi pi-check" (click)="onToggleDialog()" label="Okay"></button>
+    </p-footer>
+
+</app-dialog>
+
+
 <div class="loginbox">
 
     <div class="w3-container w3-lobster logo">
@@ -13,23 +25,16 @@
         </div>
 
         <div class="element-container">
-            <button type="submit" [disabled]="!formBase_formGroup.valid"> Login </button>
+            <button type="submit"> Login </button>
         </div>
 
-        <a href="#"> Lost your password </a>
-        <a href="#"> Don't have an account? </a>
+        <div class="missing-creadentials-container">
+            <a> Lost your password </a>
+            <a (click)="onSignUp()"> Don't have an account? </a>
+        </div>
+
     </form>
 
 </div>
 
 <button (click)="test()"> test </button>
-
-<!-- <form>
-        <p> Username </p>
-        <input type="text" name="" placeholder="Enter Username">
-        <p> Password </p>
-        <input type="password" name="" placeholder="Enter Password">
-        <input type="Submit" name="" value="Login" (click)="onLogin()">
-        <a href="#"> Lost your password </a>
-        <a href="#"> Don't have an account? </a>
-    </form> -->

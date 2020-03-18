@@ -2,10 +2,6 @@ input, label {
     display: block;
 }
 
-// .input-container {
-//     margin-top: 10px;
-// }
-
 .input-container label {
     width: 100%;
     text-transform: capitalize;
@@ -20,16 +16,14 @@ input, label {
     border: none;
     outline: none;
     border-radius: 5px;
-
 }
 
+.error-message {
+    color: #ffc107;
+    font-style: italic;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-top: 5px;
+    font-size: 13px;
+}
 
-// .loginbox input[type="text"], input[type="password"] {
-//     border: none;
-//     border-bottom: 1px solid #fff;
-//     background: transparent;
-//     outline: none;
-//     height: 40px;
-//     color: #fff;
-//     font-size: 16px;
-// }

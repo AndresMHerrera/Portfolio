@@ -1,3 +1,4 @@
+import { DialogComponentParam } from './../../core/components/dialog/dialog.component';
 import { LoginModel } from './../../core/models/login.model';
 import { LoginService } from './../../core/services/login/login.service';
 import { ROUTE_PATHS } from './../../routing/route-paths';
@@ -17,35 +18,55 @@ export class LoginComponent extends FormBaseComponent<LoginModel> implements OnI
     public usernameFormControl: InputTagFormControlComponentParams<LoginModel>;
     public passwordFormControl: InputTagFormControlComponentParams<LoginModel>;
     public loginModel: LoginModel = new LoginModel();
+    public dialogComponentParam: DialogComponentParam = new DialogComponentParam('Username & Password');
 
     constructor(public router: Router, public loginService: LoginService) {
         super();
     }
 
     ngOnInit() {
-        console.log('LoginComponent - ngOnInit');
         this.formBase_buildForm();
     }
 
-    signUp(): void {
+    onSignUp(): void {
         this.router.navigate([ROUTE_PATHS.SIGNUP]);
     }
 
     onLogin(): void {
-        this.loginService.login();
-        this.router.navigate([ROUTE_PATHS.HOME]);
+        if (this.formBase_formGroup.valid) {
+            this.loginService.login();
+            this.router.navigate([ROUTE_PATHS.HOME]);
+        } else {
+            this.onToggleDialog();
+        }
     }
 
     formBase_buildForm(): void {
+        this.usernameFormControl = new InputTagFormControlComponentParams(
+            this.formBase_formGroup,
+            'username',
+            this.loginModel,
+            'username',
+            [Validators.required, Validators.minLength(4)],
+            'username'
+        );
 
-        console.log('formBase_buildForm');
-
-        this.usernameFormControl = new InputTagFormControlComponentParams(this.formBase_formGroup, 'username', this.loginModel, 'username', [Validators.required], 'username' );
-        this.passwordFormControl = new InputTagFormControlComponentParams(this.formBase_formGroup, 'password', this.loginModel, 'password', [Validators.required], 'password', 'password' );
+        this.passwordFormControl = new InputTagFormControlComponentParams(
+            this.formBase_formGroup,
+            'password',
+            this.loginModel,
+            'password',
+            [Validators.required],
+            'password',
+            'password'
+        );
     }
 
     test() {
         console.log(this.formBase_formGroup);
     }
 
+    onToggleDialog() {
+        this.dialogComponentParam.visible = !this.dialogComponentParam.visible;
+    }
 }

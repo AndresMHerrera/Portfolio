@@ -23,6 +23,8 @@ import { TaskBundleComponent } from './core/components/task-bundle/task-bundle.c
 import { TaskStatusPipe } from './core/pipes/task-status.pipe';
 import {DialogModule} from 'primeng/dialog';
 import { InputTagFormControlComponent } from './core/components/forms/input-tag-form-control/input-tag-form-control.component';
+import { DialogComponent } from './core/components/dialog/dialog.component';
+
 
 @NgModule({
     declarations: [
@@ -35,7 +37,8 @@ import { InputTagFormControlComponent } from './core/components/forms/input-tag-
         NavigationBarComponent,
         TaskBundleComponent,
         TaskStatusPipe,
-        InputTagFormControlComponent
+        InputTagFormControlComponent,
+        DialogComponent
     ],
     imports: [
         BrowserModule,
