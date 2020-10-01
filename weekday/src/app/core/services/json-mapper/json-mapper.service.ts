@@ -81,11 +81,6 @@ export class JsonMapperService {
 
         let classInstance =  undefined;
 
-        console.log('classReference');
-        console.log(classReference);
-        console.log(jsonObject);
-        console.log('\n\n\n');
-
         if (!classReference || !jsonObject)
             return undefined;
 
@@ -106,7 +101,6 @@ export class JsonMapperService {
 
                 // Handle Array
                 if (this.isArray(clazz)) {
-                    console.log('Handle ARRAY');
                     let metadata = this.getJsonProperty(classInstance, key);
 
                     if (metadata.clazz || this.isPrimitive(clazz)) {
@@ -127,26 +121,16 @@ export class JsonMapperService {
 
                 // Handle Object
                 else if (!this.isPrimitive(clazz) && clazz) {
-                    console.log('Handle Object');
-                    console.log(clazz);
-                    console.log(innerJson);
-                    console.log(jsonObject);
-                    console.log(jsonPropertyName);
-                    console.log('====Handle Object');
-
                     return this.deserializeObject(clazz, innerJson);
                 }
 
                 // Handle Primitive types
                 else {
-                    console.log('Handle Primitive');
                     return jsonObject ? jsonObject[jsonPropertyName] : undefined;
                 }
             };
 
             let propertyMetadata:IJsonMetaData<any> = this.getJsonProperty(classInstance, key);
-
-console.log(propertyMetadata);
 
             // Only map fields that have Metadata else set the classInstance[key] to undefined.
             if (propertyMetadata) {
