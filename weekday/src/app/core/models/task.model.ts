@@ -1,6 +1,5 @@
 import { TaskStatusModel } from './task-status.model';
 import { TimeEstimateModel } from './time-estimate.model';
-import { mappable } from '../decorators/mappable.decorator';
 
 export class TaskModel {
 

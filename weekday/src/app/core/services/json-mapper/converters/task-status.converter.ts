@@ -1,8 +1,7 @@
 import { TASK_STATUS } from './../../../enumerations/task-status.enum';
-import { JsonConverter, JsonCustomConvert } from 'json2typescript';
 
-@JsonConverter
-export class TaskStatusConverter implements JsonCustomConvert<TASK_STATUS> {
+// export class TaskStatusConverter implements JsonCustomConvert<TASK_STATUS> {
+export class TaskStatusConverter {
 
     serialize(value: TASK_STATUS): string {
         return value as string;

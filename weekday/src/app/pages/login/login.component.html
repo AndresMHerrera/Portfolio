@@ -16,12 +16,12 @@
         <p class="w3-xxlarge">Weekday</p>
     </div>
 
-    <form [formGroup]="formBase_formGroup" (ngSubmit)="onLogin()">
+    <form [formGroup]="form_formGroup" (ngSubmit)="form_onSubmitForm()">
 
-        <app-input-tag-form-control [params]="usernameFormControl"></app-input-tag-form-control>
+        <app-input-tag-form-control [control]="this.form_formGroup.get('username')" label="username"></app-input-tag-form-control>
 
         <div class="element-container">
-            <app-input-tag-form-control [params]="passwordFormControl"></app-input-tag-form-control>
+            <app-input-tag-form-control [control]="this.form_formGroup.get('password')" label="password"></app-input-tag-form-control>
         </div>
 
         <div class="element-container">
@@ -36,5 +36,3 @@
     </form>
 
 </div>
-
-<button (click)="test()"> test </button>

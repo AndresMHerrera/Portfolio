@@ -1,17 +1,16 @@
-<ng-container *ngIf="params">
-    <div class="input-container" [formGroup]="params.formGroup">
-        <label [for]="params.formControlName"> {{ params.label }} </label>
-        <input [id]="params.formControlName" [type]="params.type" [formControlName]="params.formControlName"
-            [placeholder]="params.placeholder" />
+
+<div class="input-container">
+    <!-- <label [for]="params.formControlName"> {{ params.label }} </label> -->
+    <label> {{ label }} </label>
+    <input [type]="type" [formControl]="control" [placeholder]="placeholder" />
+</div>
+
+<ng-container *ngIf="control.errors">
+    <div *ngIf="control.errors.required" class="error-message">
+        * Name is required.
     </div>
 
-    <ng-container *ngIf="control.errors">
-        <div *ngIf="control.errors.required" class="error-message">
-            * Name is required.
-        </div>
-
-        <div *ngIf="control.errors.minlength" class="error-message">
-            * Name must be at least {{ control.errors.minlength.requiredLength }} characters long.
-        </div>
-    </ng-container>
+    <div *ngIf="control.errors.minlength" class="error-message">
+        * Name must be at least {{ control.errors.minlength.requiredLength }} characters long.
+    </div>
 </ng-container>

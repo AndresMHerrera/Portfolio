@@ -1,5 +1,4 @@
 import { TaskModel } from './task.model';
-import { mappable } from '../decorators/mappable.decorator';
 
 export class TaskBundleModel {
 
