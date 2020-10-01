@@ -1,16 +1,15 @@
-import { JsonObject, JsonProperty } from 'json2typescript';
-import { mappable } from '../decorators/mappable.decorator';
 
-@mappable
-@JsonObject('TimeLineModel')
-export class TimeLineModel {
 
-    // tslint:disable-next-line: variable-name
-    private my_type: string = 'TimeLineModel';
+// @mappable
+// @JsonObject('TimeLineModel')
+// export class TimeLineModel {
 
-    @JsonProperty('startDate', Date)
-    startDate: Date = undefined;
+//     // tslint:disable-next-line: variable-name
+//     private my_type: string = 'TimeLineModel';
 
-    @JsonProperty('endDate', Date)
-    endDate: Date = undefined;
-}
+//     @JsonProperty('startDate', Date)
+//     startDate: Date = undefined;
+
+//     @JsonProperty('endDate', Date)
+//     endDate: Date = undefined;
+// }

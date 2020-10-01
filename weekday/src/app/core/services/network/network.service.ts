@@ -19,7 +19,7 @@ export class NetworkService extends BaseService {
 
         return this.httpClient.get<T>(url).pipe(
             retry(3),
-            map((json) => this.jsonMapperService.deserialize<T>(json))
+            // map((json) => this.jsonMapperService.deserialize<T>(json))
         );
     }
 }

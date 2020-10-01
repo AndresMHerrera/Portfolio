@@ -1,3 +1,4 @@
+// TODO REMOVE
 export class GlobalSettings {
 
     // tslint:disable-next-line: variable-name

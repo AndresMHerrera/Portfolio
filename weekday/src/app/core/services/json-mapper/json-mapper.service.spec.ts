@@ -1,35 +1,34 @@
-import '../../util/init.util';
-import { TestModel, TEST_ENUM } from './../../models/test.model';
 import { TestBed } from '@angular/core/testing';
 import { JsonMapperService } from './json-mapper.service';
+import { JsonProperty } from './decorators/property.decorator';
+
+class AssetTest {
+    @JsonProperty('Name')
+    name: string = undefined;
+}
+
+class PersonTest {
+    @JsonProperty('FirstName')
+    firstName: string = undefined;
+
+    @JsonProperty('LastName')
+    lastName: string = undefined;
+
+    @JsonProperty('Age')
+    age: number = undefined;
+
+    @JsonProperty({ name: 'BirthDate', clazz: Date })
+    birthDate: Date = undefined;
+
+    @JsonProperty({ name: 'Assets', clazz: AssetTest})
+    assets: AssetTest[] = [];
+}
 
 describe('JsonMapperService', () => {
 
     let jsonMapperService: JsonMapperService;
 
-    const json: any = {
-        my_type: 'TestModel',
-        my_name: 'John',
-        phone: 5555555555,
-        status: 'IN_REVIEW',
-        nestedObject: {
-            my_type: 'Test2Model',
-            name: 'Bob'
-        },
-        nestedArray: [
-            {
-                my_type:  'Test2Model',
-                name: 'Bob'
-            },
-            {
-                my_type:  'Test2Model',
-                name: 'Bob'
-            }
-        ]
-    };
-
     beforeEach(() => {
-
         TestBed.configureTestingModule({
             providers: [
                 JsonMapperService
@@ -37,83 +36,122 @@ describe('JsonMapperService', () => {
         });
 
         jsonMapperService = TestBed.get(JsonMapperService);
-
     });
 
-    it('should deserialize an object - interface', () => {
+    it('should deserialize an object with primitive types', () => {
+        const json = {
+            FirstName: "John",
+            LastName: "Doe",
+            Age: 55
+        };
 
-        const result: TestModel = jsonMapperService.deserialize<TestModel>(json) as TestModel;
+        const result: PersonTest = jsonMapperService.deserialize<PersonTest>(PersonTest, json) as PersonTest;
 
-        expect(result).toBeTruthy('Json object not parsed correctly');
-        expect(result.name).toEqual('John');
-        expect(result.phone).toEqual(5555555555);
-        expect(result.status).toEqual(TEST_ENUM.IN_REVIEW);
+        expect(result instanceof PersonTest).toBeTruthy();
+        expect(result.firstName).toEqual('John');
+        expect(result.lastName).toEqual('Doe');
+        expect(result.age).toEqual(55);
     });
 
-    it('should deserialize a non-empty Array - interface', () => {
+    it('should deserialize a array of object of primitive types', () => {
+        const json = [
+            {
+                FirstName: "John",
+                LastName: "Doe",
+                Age: 55
+            },
+            {
+                FirstName: "John",
+                LastName: "Doe",
+                Age: 55
+            },
+            {
+                FirstName: "John",
+                LastName: "Doe",
+                Age: 55
+            }
+        ];
 
-        const jsonArray: any[] = [json, json];
+        const result: PersonTest[] = jsonMapperService.deserialize<PersonTest>(PersonTest, json) as PersonTest[];
 
-        const result: TestModel[] = jsonMapperService.deserialize<TestModel>(jsonArray) as TestModel[];
+        expect(result.length).toEqual(3);
 
-        expect(result).toBeTruthy();
-        expect(result.length).toEqual(2);
-        expect(result[0]).toBeTruthy('Json object not parsed correctly');
-        expect(result[0].name).toEqual('John');
-        expect(result[0].phone).toEqual(5555555555);
-        expect(result[0].status).toEqual('IN_REVIEW');
+        expect(result[0] instanceof PersonTest).toBeTruthy();
+        expect(result[0].firstName).toEqual('John');
+        expect(result[0].lastName).toEqual('Doe');
+        expect(result[0].age).toEqual(55);
+
+        expect(result[1] instanceof PersonTest).toBeTruthy();
+        expect(result[1].firstName).toEqual('John');
+        expect(result[1].lastName).toEqual('Doe');
+        expect(result[1].age).toEqual(55);
+
+        expect(result[2] instanceof PersonTest).toBeTruthy();
+        expect(result[2].firstName).toEqual('John');
+        expect(result[2].lastName).toEqual('Doe');
+        expect(result[2].age).toEqual(55);
     });
 
-    it('should deserialize an object', () => {
 
-        const result: TestModel = jsonMapperService.deserializeObject<TestModel>(json);
+    it('should deserialize a object with a nested object', () => {
+        const json = {
+            FirstName: "John",
+            LastName: "Doe",
+            Age: 55,
+            Assets: [
+                {
+                    Name: "House"
+                }
+            ]
+        };
 
-        expect(result).toBeTruthy('Json object not parsed correctly');
-        expect(result.name).toEqual('John');
-        expect(result.phone).toEqual(5555555555);
-        expect(result.status).toEqual(TEST_ENUM.IN_REVIEW);
+        const result: PersonTest = jsonMapperService.deserialize<PersonTest>(PersonTest, json) as PersonTest;
+
+        expect(result instanceof PersonTest).toBeTruthy();
+        expect(result.firstName).toEqual('John');
+        expect(result.lastName).toEqual('Doe');
+        expect(result.age).toEqual(55);
+
+        expect(result.assets.length).toEqual(1);
+        expect(result.assets[0] instanceof AssetTest).toBeTruthy();
+        expect(result.assets[0].name).toBeTruthy('House');
     });
 
-    it('should deserialize a nested custom object', () => {
+    it('should deserialize a object with Date', () => {
+        const json = {
+            FirstName: "John",
+            LastName: "Doe",
+            Age: 55,
+            BirthDate: "2020-10-01T22:21:32.603Z",
+            Assets: [
+                {
+                    Name: "House"
+                }
+            ]
+        };
 
-        const result: TestModel = jsonMapperService.deserializeObject<TestModel>(json);
+        const result: PersonTest = jsonMapperService.deserialize<PersonTest>(PersonTest, json) as PersonTest;
 
-        expect(result).toBeTruthy('Json object not parsed correctly');
-        expect(result.nestedObject).toBeTruthy('Nested object not parsed correctly');
-        expect(result.nestedObject.name).toEqual('Bob');
+        expect(result instanceof PersonTest).toBeTruthy();
+        expect(result.firstName).toEqual('John');
+        expect(result.lastName).toEqual('Doe');
+        expect(result.age).toEqual(55);
+
+        expect(result.birthDate instanceof Date).toBeTruthy();
+        expect(result.birthDate.getFullYear()).toBeTruthy(2020);
+        expect(result.birthDate.getMonth()).toBeTruthy(9);
+        expect(result.birthDate.getDay()).toBeTruthy(1);
+
+        expect(result.assets.length).toEqual(1);
+        expect(result.assets[0] instanceof AssetTest).toBeTruthy();
+        expect(result.assets[0].name).toBeTruthy('House');
     });
 
-    it('should deserialize a nested custom Array', () => {
-
-        const result: TestModel = jsonMapperService.deserializeObject<TestModel>(json);
-
-        expect(result).toBeTruthy('Json object not parsed correctly');
-        expect(result.nestedArray).toBeTruthy('Nested Array not parsed correctly');
-        expect(result.nestedArray.length).toEqual(2);
-        expect(result.nestedArray[0].name).toEqual('Bob');
-    });
-
-    it('should deserialize a non-empty Array', () => {
-
-        const jsonArray: any[] = [json, json];
-
-        const result: TestModel[] = jsonMapperService.deserializeArray<TestModel>(jsonArray);
-
-        expect(result).toBeTruthy();
-        expect(result.length).toEqual(2);
-        expect(result[0]).toBeTruthy('Json object not parsed correctly');
-        expect(result[0].name).toEqual('John');
-        expect(result[0].phone).toEqual(5555555555);
-    });
-
-    it('should deserialize an empty Array', () => {
-
-        const jsonArray: any[] = [];
-
-        const result: TestModel[] = jsonMapperService.deserializeArray<TestModel>(jsonArray);
+    it('should deserialize a empty array', () => {
+        const json = [];
+        const result: PersonTest[] = jsonMapperService.deserialize<PersonTest>(PersonTest, json) as PersonTest[];
 
         expect(result).toBeTruthy();
         expect(result.length).toEqual(0);
     });
-
 });
